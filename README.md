@@ -1,2 +1,2 @@
-# Kiselev_Aleksandr_Viktorovich
+# COMPUTER VISION
 Здесь компьютерное зрение и теория и практика языков программирования
