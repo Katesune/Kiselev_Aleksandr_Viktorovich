@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Oct 14 01:26:20 2020
-
 @author: Adm
 """
 
@@ -22,6 +21,7 @@ def getLine(img1):
     return "The picture does not exist"
 
 def clearLine(line):
+    #оставляем от всего изображения только единички
     i=0
     j=len(line)-1
     
@@ -73,13 +73,13 @@ img1 = getData(files[0])
 img2 = getData(files[1])
 
 
-img1_1 = getImg(img1)
+img1_1 = getImg(img1) # достаем в img1_1 только 1, не учитывая нули в округе, так получаем полное изображение без шума
 img2_1 = getImg(img2)
 
 
-if checkImages(img1_1,img2_1)==-1:
+if checkImages(img1_1,img2_1)==-1: #Проверяем, соответствует ли изображение 1 изображению второму
     print("The images does not match")
-else :
+else : #если соответствует, ищем смещение
     x1, y1 = getBias(img1)
     x2, y2 = getBias(img2)
     print('x1 = ', x1, ' y1 = ', y1)
