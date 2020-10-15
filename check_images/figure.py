@@ -9,6 +9,8 @@ def main(files):
     for file in files:
         mm, datas = getData(file)
         count = getCountOnes(datas)
+        print("mm = ", mm)
+        print("count = ", count)
         result.append(getResult(mm, count))
     return result
     
@@ -16,14 +18,21 @@ def getData(file):
     with open (file, 'r') as f:
         mm = f.readline()
         f.readline()
-        datas = f.read()
+        datas = []
+        while(f.readline()):
+            datas.append(f.readline())
     return mm, datas
     
 def getCountOnes(datas):
     count=0
     for data in datas:
-        if data=='1':
-            count+=1
+        count_new = 0 
+        for d in data:
+            if d=='1':
+                count_new+=1
+        if count_new > count:
+            count = count_new
+    #print(count)
     return count
     
 def getResult(mm, count):
