@@ -9,8 +9,6 @@ def main(files):
     for file in files:
         mm, datas = getData(file)
         count = getCountOnes(datas)
-        print("mm = ", mm)
-        print("count = ", count)
         result.append(getResult(mm, count))
     return result
     
