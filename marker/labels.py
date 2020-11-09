@@ -70,8 +70,6 @@ def myFunction(labels):
    
     return labels
 
-            
-
 def two_pass_labeling(B):
     linked = np.zeros(len(B), dtype="uint")
     labels = np.zeros_like(B)
