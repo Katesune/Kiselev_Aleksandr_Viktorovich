@@ -1,7 +1,5 @@
-def negate(B):
-    array = B.copy()
-    array[np.where(array == 1)] = -1
-    return array
+import matplotlib.pyplot as plt
+import numpy as np
 
 def check(B, y, x):
     if not 0 <= x < B.shape[0]:
@@ -75,3 +73,38 @@ def marking(B):
                 labels[row, col] = label_it.get(new_label)
                              
     return labels
+
+if __name__ == "__main__":
+    B = np.zeros((20, 20), dtype='int32')
+    
+    B[1:-1, -2] = 1
+    
+    B[1, 1:5] = 1
+    B[1, 7:12] = 1
+    B[2, 1:3] = 1
+    B[2, 6:8] = 1
+    B[3:4, 1:7] = 1
+    
+    B[7:11, 11] = 1
+    B[7:11, 14] = 1
+    B[10:15, 10:15] = 1
+    
+    B[5:10, 5] = 1
+    B[5:10, 6] = 1
+
+    LB = two_pass_labeling(B)
+    
+    print("Labels - ", list(set(LB.ravel()))[1:])
+    
+    
+    plt.figure(figsize=(12, 5))
+    plt.subplot(121)
+    plt.imshow(B, cmap="hot")
+    plt.colorbar(ticks=range(int(2)))
+    plt.axis("off")
+    plt.subplot(122)
+    plt.imshow(LB.astype("uint8"), cmap="hot")
+    plt.colorbar()
+    plt.axis("off")
+    plt.tight_layout()
+    plt.show()
