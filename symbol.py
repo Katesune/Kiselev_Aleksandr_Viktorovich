@@ -141,7 +141,7 @@ for c in conts1:
 print(my_dict)
 print(len(conts1))
 print(getLengthFromDict(my_dict))
-print(getLengthFromDict(my_dict)/len(conts1)*100)
+print("Процент распознования =", getLengthFromDict(my_dict)/len(conts1)*100)
 
 im = cv2.resize(nice_img, (1000, 1000))  
 cv2.imwrite("Input.png", image)
