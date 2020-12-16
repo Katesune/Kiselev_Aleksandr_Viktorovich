@@ -6,6 +6,9 @@ flimit = 250
 slimit = 255
 
 def drawRectAbove(c, image):
+     # Функция для рисования прямоугольника по контуру
+     # 1 параметр - с - контур, по которому ищем прямоугольник
+     # 2 параметр - изображение, на котором рисуем
      rect = cv2.minAreaRect(c) 
      box = cv2.boxPoints(rect) 
      box = np.int0(box)
