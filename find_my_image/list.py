@@ -46,6 +46,8 @@ while cam.isOpened():
     ret, frame = cam.read()
     converted = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
     mask = cv2.inRange(converted, np.array([20, flimit, 0]), np.array([160, slimit, 100])) 
+    # 20 - низкое значение моего цвета, 160 - высокое, 
+    # среднее значение с помощью ползунков веду где-то от 0 до 90
 
     mask = cv2.erode(mask, kernel)
     mask = cv2.dilate(mask, kernel)
